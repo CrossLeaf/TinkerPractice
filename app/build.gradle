@@ -35,7 +35,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     // Tinker
     //optional, help to generate the final application
-    annotationProcessor('com.tencent.tinker:tinker-android-anno:1.9.14.3')
+    annotationProcessor("com.tencent.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
+    compileOnly("com.tencent.tinker:tinker-android-anno:${TINKER_VERSION}") { changing = true }
     //tinker's main Android lib
     implementation('com.tencent.tinker:tinker-android-lib:1.9.14.3')
     implementation "com.android.support:multidex:1.0.3"
