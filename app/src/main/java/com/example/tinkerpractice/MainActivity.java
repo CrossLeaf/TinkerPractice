@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Button loadBtn = findViewById(R.id.btn_load);
         loadBtn.setOnClickListener(view ->
                 TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(),
-                        Environment.getExternalStorageDirectory().getAbsolutePath() + "/tinker_new.apk"));
+                        Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk"));
     }
 
     private void askForRequiredPermissions() {
