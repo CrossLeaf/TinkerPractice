@@ -5,13 +5,13 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.tinkerpractice.util.Utils;
 import com.tencent.tinker.lib.tinker.TinkerInstaller;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,9 +24,23 @@ public class MainActivity extends AppCompatActivity {
         askForRequiredPermissions();
 
         Button loadBtn = findViewById(R.id.btn_load);
-        loadBtn.setOnClickListener(view ->
-                TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(),
+        loadBtn.setOnClickListener(
+                view -> TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(),
                         Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk"));
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Utils.setBackground(false);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Utils.setBackground(true);
     }
 
     private void askForRequiredPermissions() {
